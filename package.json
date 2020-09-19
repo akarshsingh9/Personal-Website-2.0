@@ -1,0 +1,35 @@
+{
+  "name": "akarshsingh.com",
+  "private": true,
+  "description": "Personal Website 2.0 code",
+  "version": "0.1.0",
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  },
+  "dependencies": {
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "gatsby": "2.24.63",
+    "gatsby-source-filesystem": "2.3.30",
+    "gatsby-plugin-sharp": "2.6.36",
+    "gatsby-transformer-sharp": "2.5.15",
+    "gatsby-transformer-remark": "2.8.35",
+    "gatsby-plugin-sass": "2.3.13",
+    "node-sass": "4.14.1"
+  },
+  "devDependencies": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/akarshsingh9/Personal-Website-2.0.git"
+  },
+  "bugs": {
+    "url": "https://github.com/akarshsingh9/Personal-Website-2.0/issues"
+  }
+}
