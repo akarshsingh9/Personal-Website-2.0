@@ -1,7 +1,10 @@
 import React from "react"
+import Layout from "../components/Layout"
 
 export default function Home() {
   return( 
-    <h2>This is HomePage</h2>
+    <Layout>
+      <p>This is HomePage</p>
+    </Layout>
   )
 }
