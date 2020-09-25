@@ -7,7 +7,6 @@ export default function Footer() {
         <nav>
             <div>
                 <Link to="/blog">Blog</Link>
-                <Link to="/projects">Projects</Link>
                 <Link to="/resume">Resume</Link>
                 <a href="\">Twitter</a>
                 <a href="\">GitHub</a>
@@ -16,7 +15,7 @@ export default function Footer() {
                 <a href="\">Ko-fi</a>
             </div>
         </nav>
-        <p>Made with <span>Love</span> by <Link to="/">Akarsh Singh</Link></p>
+        <p>Made with ❤️ by <Link to="/">Akarsh Singh</Link></p>
     </footer>
     )
 }

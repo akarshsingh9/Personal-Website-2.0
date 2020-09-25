@@ -1,0 +1,25 @@
+- name: akarshsingh.com
+  icon: 💾
+  description: Personal Website developed from scratch using Gatsby JS, React, CSS and HTML.
+  url: https://github.com/akarshsingh9/akarshsingh.com
+
+- name: Materialize Blog Website 
+  icon: 🎨
+  description: My first blog theme developed using Materialize CSS. 
+  url: https://github.com/akarshsingh9/Materialize-Blog-website
+
+- name: Code in Python Android App
+  icon: 🐍
+  description: My first android app published on Play Store. Teaching Python programming.
+  url: https://github.com/akarshsingh9/CodeInPython
+
+
+- name: Tour Itinerary Android App 
+  icon: 📆
+  description: Android app developed during internship at HPCL. Converting existing site to app.
+  url: https://github.com/akarshsingh9/TourItinerary
+
+- name: Flight Search Android App
+  icon: ✈️
+  description: Android app developed from scratch in less than 24 hours. Part of Interview process.
+  url: https://github.com/akarshsingh9/FlightSearch

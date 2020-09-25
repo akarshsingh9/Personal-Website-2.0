@@ -11,7 +11,6 @@ export default function Header() {
             
             <div>
                 <Link to="/blog">Blog</Link>
-                <Link to="/projects">Projects</Link>
                 <Link to="/resume">Resume</Link>
             </div>
         </nav>
