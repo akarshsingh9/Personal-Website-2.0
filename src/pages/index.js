@@ -2,6 +2,7 @@ import React from "react"
 import Layout from "../components/Layout"
 import SoftareProjects from "../../content/data/software-projects.yaml"
 import WorkExp from "../../content/data/professional-career.yaml"
+import AkarshImg from "../../content/assets/akarsh.jpg"
 
 export default function Home() {
   return( 
@@ -10,6 +11,8 @@ export default function Home() {
       Software Engineer & Content Writer
       Welcome to my personal website, where I drop notes and articles about things that I am interested in. There are no ads, sponsored posts, sign up for newsletter crap. Enjoy this clean and uncluttered space on the Internet. 
     
+    <img src={AkarshImg} alt="Akarsh's Pic"/>
+
     <div>
       Latest in Blog
     </div>
