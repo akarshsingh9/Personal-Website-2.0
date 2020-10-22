@@ -14,7 +14,7 @@ export default function Home() {
     <img src={AkarshImg} alt="Akarsh's Pic"/>
 
     <div>
-      Latest in Blog
+      <h2>Latest in Blog</h2>
     </div>
       
     <div>

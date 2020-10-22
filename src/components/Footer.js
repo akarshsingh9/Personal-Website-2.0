@@ -15,7 +15,7 @@ export default function Footer() {
                 <a href="\">Ko-fi</a>
             </div>
         </nav>
-        <p>Made with ❤️ by <Link to="/">Akarsh Singh</Link></p>
+        <p>Made with <span role="img" aria-labelledby="love">❤️</span> by <Link to="/">Akarsh Singh</Link></p>
     </footer>
     )
 }

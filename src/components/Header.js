@@ -6,7 +6,7 @@ export default function Header() {
     <header>
         <nav>
             <div>
-                <Link to="\">Akarsh Singh</Link>
+                <Link to="/">Akarsh Singh</Link>
             </div>
             
             <div>
