@@ -21,44 +21,52 @@ const BlogPost = ({ data, pageContext }) => {
   
     return (
         <Layout>
-            <article itemScope itemType="http://schema.org/Article">
-            <header>
-              <h1>{post.frontmatter.title}</h1>
-              <p>
-                {post.frontmatter.date}
-              </p>
-            </header>
-            <section
-              dangerouslySetInnerHTML={{ __html: post.html }}
-              itemProp="articleBody"
-            />
-            <hr/>
+          <div className="container">
+            <article>
+              <header className="article-header">
+                <div className="container">
+                <div>
+                  <h1>{post.frontmatter.title}</h1>
+                  <div className="post-meta">
+                    <div>
+                      By <Link to="/">Akarsh Singh</Link> on{' '}
+                      <time>{post.frontmatter.date}</time>
+                    </div>
+                    {tags && (
+                      <div className="tags">
+                        {tags.map((tag) => (
+                          <Link
+                            key={tag}
+                            to={`/tags/${tag}`}
+                            className={`tag-${tag}`}
+                          >
+                            {tag}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </div>
+                </div>
+              </header>
+              <div className="article-post" itemProp="articleBody" dangerouslySetInnerHTML={{ __html: post.html }} />
             </article>
-            
-            <div>
-                tags:
-                <ul>
-                    {tags.map(t => (
-                    <li key={t}>
-                        <Link to={`/tags/${t}`}>{t}</Link>
-                    </li>
-                    ))}
-                </ul>
-            </div>
-            
-            <div>
-                {previous && (<Link to={previous.url}>
-                    <span>Previous</span>
-                    <h3>{previous.title}</h3>
-                    </Link>
-                    )}
-                    
-                {next && (<Link to={next.url}>
-                    <span>Next</span>
-                    <h3>{next.title}</h3>
-                    </Link>
-                    )}
-            </div>
+          </div>   
+        
+        <nav className="flex container suggested">
+          {previous && (
+            <Link to={previous.url} rel="prev">
+              <span>Previous</span>
+              {previous.title}
+            </Link>
+          )}
+          {next && (
+            <Link to={next.url} rel="next">
+              <span>Next</span>
+              {next.title}
+            </Link>
+          )}
+        </nav>
         </Layout>
     )
 }
@@ -73,6 +81,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         tags
+        description
       }
     }
   }

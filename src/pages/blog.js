@@ -17,25 +17,14 @@ const BlogIndex = ({ data }) => {
             itemScope
             itemType="http://schema.org/Article"
           >
-            <header>
-              <h3>
-                <Link to={node.fields.slug}>{title}</Link>
-              </h3>
-              <small>{node.frontmatter.date}</small>
-            </header>
-            <section>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description || node.excerpt,
-                }}
-                itemProp="description"
-              />
-            </section>
+            <time>{node.frontmatter.date}</time>
+            <p><Link to={node.fields.slug}>{title}</Link></p>
           </article>
         )
       })}
   </Layout>
   )
+  //{node.frontmatter.description} {node.frontmatter.tags}
 }
 
 export const pageQuery = graphql`
@@ -55,7 +44,7 @@ export const pageQuery = graphql`
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
             title
-            description
+            tags
           }
         }
       }

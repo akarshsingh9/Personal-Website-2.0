@@ -3,19 +3,18 @@ import { Link } from 'gatsby'
 
 export default function Footer() {
     return(
-    <footer>
-        <nav>
-            <div>
+    <footer className="footer flex">
+        <section className="container">
+          <nav className="footer-links">
                 <Link to="/blog">Blog</Link>
                 <Link to="/resume">Resume</Link>
-                <a href="\">Twitter</a>
-                <a href="\">GitHub</a>
-                <a href="\">RSS</a>
-                <a href="\">Patreon</a>
-                <a href="\">Ko-fi</a>
-            </div>
-        </nav>
-        <p>Made with <span role="img" aria-labelledby="love">❤️</span> by <Link to="/">Akarsh Singh</Link></p>
+                <a href="\" target="_blank" rel="noopener noreferrer">Twitter</a>
+                <a href="\" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="\" target="_blank" rel="noopener noreferrer">RSS</a>
+                <a href="\" target="_blank" rel="noopener noreferrer">Patreon</a>
+                <a href="\" target="_blank" rel="noopener noreferrer">Ko-fi</a>
+            </nav>
+        </section>         
     </footer>
     )
 }

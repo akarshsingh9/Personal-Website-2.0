@@ -3,17 +3,20 @@ import { Link } from 'gatsby'
 
 export default function Header() {
     return(
-    <header>
-        <nav>
-            <div>
-                <Link to="/">Akarsh Singh</Link>
-            </div>
-            
-            <div>
+    <nav className="navbar">
+      <div className="container">
+        <div className="flex">
+          
+          <div>
+                <Link to="/" className="brand">Akarsh Singh</Link>
+          </div>
+
+            <div className="flex">
                 <Link to="/blog">Blog</Link>
                 <Link to="/resume">Resume</Link>
             </div>
-        </nav>
-    </header>
+        </div>
+     </div>
+    </nav>      
     )
 }
