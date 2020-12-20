@@ -14,8 +14,6 @@ export default function Home() {
       Software Engineer & Content Writer
       Welcome to my personal website, where I drop notes and articles about things that I am interested in. There are no ads, sponsored posts, sign up for newsletter crap. Enjoy this clean and uncluttered space on the Internet. 
       </p>
-      
-      
       </section>      
       
     <div>

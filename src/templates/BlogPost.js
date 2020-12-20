@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import Layout from "../components/Layout"
+import Sidebar from "../components/Sidebar"
 
 const BlogPost = ({ data, pageContext }) => {
     const post = data.markdownRemark
@@ -52,7 +53,8 @@ const BlogPost = ({ data, pageContext }) => {
               <div className="article-post" itemProp="articleBody" dangerouslySetInnerHTML={{ __html: post.html }} />
             </article>
           </div>   
-        
+          <Sidebar post={post} />
+
         <nav className="flex container suggested">
           {previous && (
             <Link to={previous.url} rel="prev">

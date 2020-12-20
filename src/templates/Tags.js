@@ -1,6 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
+import Layout from "../components/Layout"
 
 const Tags = ({ pageContext, data }) => {
   const { tag } = pageContext
@@ -9,21 +10,26 @@ const Tags = ({ pageContext, data }) => {
     totalCount === 1 ? "" : "s"
   } tagged with "${tag}"`
   return (
+    <Layout>
     <div>
-      <h1>{tagHeader}</h1>
-      <ul>
-        {edges.map(({ node }) => {
+      <h2>{tagHeader}</h2>
+
+      {edges.map(({ node }) => {
           const { slug } = node.fields
           const { title } = node.frontmatter
           
           return (
-            <li key={slug}>
-              <Link to={`/blog/${slug}`}>{title}</Link>
-            </li>
-          )
-        })}
-      </ul>
+          <article
+            key={slug}
+            itemScope
+            itemType="http://schema.org/Article"
+          >
+            <p><Link to={`/blog/${slug}`}>{title}</Link></p>
+          </article>
+        )
+      })}
     </div>
+    </Layout> 
   )
 }
 Tags.propTypes = {
