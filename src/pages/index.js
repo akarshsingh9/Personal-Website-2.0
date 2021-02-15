@@ -1,27 +1,65 @@
 import React from "react"
+import { Link, graphql } from 'gatsby'
 import Layout from "../components/Layout"
 import SoftareProjects from "../../content/data/software-projects.yaml"
 import WorkExp from "../../content/data/professional-career.yaml"
 import AkarshImg from "../../content/assets/akarsh.jpg"
 
-export default function Home() {
+export const latestBlogPost = graphql`
+query {
+  allMarkdownRemark(limit: 6, sort: {fields: frontmatter___date, order: DESC}) {
+    edges {
+      node {
+        frontmatter {
+          date
+          description
+          slug
+          tags
+          title
+        }
+      }
+    }
+  }
+}
+`
+
+export default function Home({ data }) {
+  const latest = data.allMarkdownRemark.edges
   return( 
     <Layout>
-      <section>
-      <h1>Hi, I'm Akarsh</h1>
-      <img src={AkarshImg} alt="Akarsh's Pic" className="img"/>
+      <section className="intro">
+      <img src={AkarshImg} alt="Akarsh's Pic" className="image"/>
+      <div>
+      <h2>Hi, I'm Akarsh</h2>
       <p>
       Software Engineer & Content Writer
       Welcome to my personal website, where I drop notes and articles about things that I am interested in. There are no ads, sponsored posts, sign up for newsletter crap. Enjoy this clean and uncluttered space on the Internet. 
       </p>
+      </div>
       </section>      
       
     <div>
-      <h2>Latest in Blog</h2>
+    <h2>Latest in Blog <Link className="section-button" to="/blog">Read more articles</Link></h2>
+      
+      {latest.map(({ node }) => {
+        const title = node.frontmatter.title
+        const slug = node.frontmatter.slug
+        const blogSlug = `blog/${slug}`
+        return (
+          <article
+            key={slug}
+            itemScope
+            itemType="http://schema.org/Article"
+          >
+            <time>{node.frontmatter.date}</time>
+            <p><Link to={blogSlug}>{title}</Link></p>
+          </article>
+        )
+      })}
     </div>
       
     <section className="Projects">
-      <h2>Software Projects</h2>
+      <h2>Software Projects <Link className="section-button" to="https://github.com/akarshsingh9">View more projects on GitHub</Link></h2>
       <div className="projects">
         {SoftareProjects.map((data, index) => {
           return (
@@ -51,3 +89,4 @@ export default function Home() {
     </Layout>
   )
 }
+

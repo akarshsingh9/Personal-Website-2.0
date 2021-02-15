@@ -11,15 +11,32 @@ const BlogIndex = ({ data }) => {
     <h2>All Posts</h2>
     {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
+        const tags = node.frontmatter.tags || []
         return (
+        <div className = "guide">
           <article
             key={node.fields.slug}
             itemScope
             itemType="http://schema.org/Article"
           >
             <time>{node.frontmatter.date}</time>
-            <p><Link to={node.fields.slug}>{title}</Link></p>
+            <h2><Link to={node.fields.slug}>{title}</Link></h2>
+            <p>{node.frontmatter.description}</p>
+          {tags && (
+            <div className="tags">
+            {tags.map((tag) => (
+              <Link
+              key={tag}
+              to={`/tags/${tag}`}
+              className={`tag-${tag}`}>
+                {tag}
+              </Link>
+              ))}
+            </div>
+          )}
           </article>
+
+        </div>
         )
       })}
   </Layout>
@@ -44,6 +61,7 @@ export const pageQuery = graphql`
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
             title
+            description
             tags
           }
         }

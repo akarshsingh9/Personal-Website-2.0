@@ -8,11 +8,7 @@ export default function Footer() {
           <nav className="footer-links">
                 <Link to="/blog">Blog</Link>
                 <Link to="/resume">Resume</Link>
-                <a href="\" target="_blank" rel="noopener noreferrer">Twitter</a>
-                <a href="\" target="_blank" rel="noopener noreferrer">GitHub</a>
-                <a href="\" target="_blank" rel="noopener noreferrer">RSS</a>
-                <a href="\" target="_blank" rel="noopener noreferrer">Patreon</a>
-                <a href="\" target="_blank" rel="noopener noreferrer">Ko-fi</a>
+                <Link to="/rss.xml">RSS</Link>
             </nav>
         </section>         
     </footer>

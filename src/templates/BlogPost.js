@@ -1,7 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
 import Layout from "../components/Layout"
-import Sidebar from "../components/Sidebar"
 
 const BlogPost = ({ data, pageContext }) => {
     const post = data.markdownRemark
@@ -12,12 +11,14 @@ const BlogPost = ({ data, pageContext }) => {
     //prev and next post
     const  previous = pageContext.previous ? {
       url: `/blog/${pageContext.previous.fields.slug}`,
-      title: pageContext.previous.frontmatter.title
+      title: pageContext.previous.frontmatter.title,
+      description: pageContext.previous.frontmatter.description
    } : null
     
     const next = pageContext.next ? {
         url: `/blog/${pageContext.next.fields.slug}`,
-        title: pageContext.next.frontmatter.title
+        title: pageContext.next.frontmatter.title,
+      description: pageContext.next.frontmatter.description
     } : null 
   
     return (
@@ -53,22 +54,25 @@ const BlogPost = ({ data, pageContext }) => {
               <div className="article-post" itemProp="articleBody" dangerouslySetInnerHTML={{ __html: post.html }} />
             </article>
           </div>   
-          <Sidebar post={post} />
 
-        <nav className="flex container suggested">
-          {previous && (
+        <h2>Read More</h2>
+        <article className="read more">
+        {previous && (
             <Link to={previous.url} rel="prev">
-              <span>Previous</span>
-              {previous.title}
+              <h2>{previous.title}</h2>
+              <p>{previous.description}</p>
             </Link>
           )}
-          {next && (
+        </article>
+
+        <article className="read more">
+        {next && (
             <Link to={next.url} rel="next">
-              <span>Next</span>
-              {next.title}
+              <h2>{next.title}</h2>
+              <p>{next.description}</p>
             </Link>
           )}
-        </nav>
+        </article>
         </Layout>
     )
 }

@@ -16,16 +16,20 @@ const Tags = ({ pageContext, data }) => {
 
       {edges.map(({ node }) => {
           const { slug } = node.fields
-          const { title } = node.frontmatter
-          
+
           return (
+          <div className = "guide">
           <article
             key={slug}
             itemScope
             itemType="http://schema.org/Article"
           >
-            <p><Link to={`/blog/${slug}`}>{title}</Link></p>
+            <time>{node.frontmatter.date}</time>
+            <h2><Link to={`/blog/${slug}`}>{node.frontmatter.title}</Link></h2>
+            <p>{node.frontmatter.description}</p>
           </article>
+        
+        </div>
         )
       })}
     </div>
@@ -71,7 +75,9 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
+            date(formatString: "MMMM DD, YYYY")
             title
+            description
           }
         }
       }
