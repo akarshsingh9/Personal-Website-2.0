@@ -9,6 +9,11 @@ const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = data
+  const linkPrefix = "/"
+  //if first page or last page then prev/next is null these 2 var crash
+  //that's why ?
+  const previousLink = linkPrefix.concat(previous?.frontmatter.slug)
+  const nextLink = linkPrefix.concat(next?.frontmatter.slug) 
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -46,14 +51,14 @@ const BlogPostTemplate = ({ data, location }) => {
         >
           <li>
             {previous && (
-              <Link to={previous.fields.slug} rel="prev">
+              <Link to={previousLink} rel="prev">
                 ← {previous.frontmatter.title}
               </Link>
             )}
           </li>
           <li>
             {next && (
-              <Link to={next.fields.slug} rel="next">
+              <Link to={nextLink} rel="next">
                 {next.frontmatter.title} →
               </Link>
             )}
@@ -83,24 +88,21 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
+        slug
         date(formatString: "MMMM DD, YYYY")
         description
       }
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {
-      fields {
-        slug
-      }
       frontmatter {
         title
+        slug
       }
     }
     next: markdownRemark(id: { eq: $nextPostId }) {
-      fields {
-        slug
-      }
       frontmatter {
         title
+        slug
       }
     }
   }
