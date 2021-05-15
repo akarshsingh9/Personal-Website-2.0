@@ -1,4 +1,4 @@
-import * as React from "react"
+import React from "react"
 import { Link, graphql } from "gatsby"
 
 import Bio from "../components/bio"
@@ -9,7 +9,7 @@ const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = data
-  const linkPrefix = "/"
+  const linkPrefix = "/blog/"
   //if first page or last page then prev/next is null these 2 var crash
   //that's why ?
   const previousLink = linkPrefix.concat(previous?.frontmatter.slug)
